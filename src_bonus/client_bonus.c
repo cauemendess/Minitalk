@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csilva-m <csilva-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 15:23:03 by csilva-m          #+#    #+#             */
-/*   Updated: 2023/11/30 12:03:39 by csilva-m         ###   ########.fr       */
+/*   Created: 2023/11/30 11:57:49 by csilva-m          #+#    #+#             */
+/*   Updated: 2023/11/30 12:23:36 by csilva-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
 #include <signal.h>
+#include "../libft/libft.h"
 
 int		g_setexit = 0;
 
 void	handler(int signal)
 {
 	if (signal == SIGUSR1)
+	{
 		g_setexit = 1;
+		ft_printf("Message received\n");
+	}
 }
 
 void	send_sig(unsigned char c, int pid)
